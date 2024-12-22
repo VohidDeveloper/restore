@@ -8,16 +8,16 @@
     <li><a href="#how">How to restore?</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  
-  @if (!authStatus()) {
-    <div class="header-buttons">
-      <button class="btn btn-gray" (click)="openLoginDialog()">Log in</button>
-      <button class="btn btn-black" (click)="openLoginDialog()">
-        <span class="text">Start restorer</span>
-          <img src="assets/images/icons/arrow-white.svg" alt="arrow" width="16" height="16" />
-            </button>
-    </div>
-  } @else {
+
+<!--  @if (!authStatus()) {-->
+<!--    <div class="header-buttons">-->
+<!--      <button class="btn btn-gray" (click)="openLoginDialog()">Log in</button>-->
+<!--      <button class="btn btn-black" (click)="openLoginDialog()">-->
+<!--        <span class="text">Start restorer</span>-->
+<!--          <img src="assets/images/icons/arrow-white.svg" alt="arrow" width="16" height="16" />-->
+<!--            </button>-->
+<!--    </div>-->
+<!--  } @else {-->
     <div class="header-logged" (click)="toggleUserMenu()">
       <div class="header-logged-account">
         <div class="header-logged-account-credit">
@@ -27,17 +27,18 @@
         </div>
         <img src="icon/menu-arrow.svg" alt="open" width="12" height="13" />
       </div>
-      <button class="btn btn-dark" routerLink="/generation">
+      <button class="btn btn-black" routerLink="/generation">
+        <span class="text">Upload</span>
         <img
           src="icon/upload-minimalistic.svg"
           alt="Upload"
           width="16"
           height="17"
         />
-        <p>Upload</p>
+
       </button>
     </div>
-  }
+<!--  }-->
 
   @if (isUserMenuOpen()) {
     <ul class="menu" appCloseMenu (closeMenu)="isUserMenuOpen.set($event)">
