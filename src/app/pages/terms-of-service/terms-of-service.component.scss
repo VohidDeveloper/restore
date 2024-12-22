@@ -1,0 +1,32 @@
+@import "mixins";
+
+:host {
+  gap: 40px;
+  width: 100%;
+  padding: 50px 46px;
+  @include container();
+  @include flex_container(flex-start, column, flex-start);
+
+  .list-style {
+    list-style: inside;
+  }
+
+  .title {
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0 auto;
+    letter-spacing: normal;
+  }
+
+  .block {
+    gap: 30px;
+    @include flex_container(flex-start, column, flex-start);
+  }
+
+  .list {
+    font-size: 16px;
+    line-height: 30px;
+    gap: 20px;
+    @include flex_container(flex-start, column, flex-start);
+  }
+}

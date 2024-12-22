@@ -1,0 +1,176 @@
+@import "mixins";
+@import "variables";
+
+.container {
+  overflow: hidden;
+  user-select: none;
+  cursor: ew-resize;
+  position: relative;
+
+  &.first {
+    width: 542px;
+    height: 556px;
+
+    .slider::after {
+      bottom: 95px;
+    }
+
+    .slider-titles {
+      bottom: 44px;
+    }
+  }
+
+  &.second {
+    width: 770px;
+    height: 362px;
+
+    .slider::after {
+      bottom: 164px;
+    }
+
+    .slider-titles {
+      bottom: 130px;
+    }
+  }
+
+  &.third {
+    width: 513px;
+    height: 513px;
+
+    .slider::after {
+      bottom: 86px;
+    }
+  }
+
+  .container-img {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    position: absolute;
+
+    img {
+      border-radius: 30px;
+    }
+  }
+
+  .after {
+    width: 100%;
+  }
+
+  .before {
+    width: 70%;
+    overflow: hidden;
+  }
+
+  .slider {
+    top: 0;
+    gap: 40px;
+    left: 70%;
+    bottom: 0;
+    z-index: 1;
+    width: 2px;
+    cursor: ew-resize;
+    position: absolute;
+    @include flex_container(center);
+    background-color: var(--white);
+
+    &::after {
+      content: "";
+      width: 62px;
+      height: 62px;
+      display: block;
+      position: absolute;
+      background-size: 62px 62px;
+      background-image: url("/icon/control.svg");
+    }
+
+    &-titles {
+      gap: 40px;
+      color: var(--gray);
+      position: absolute;
+      @include flex_container();
+
+      p {
+        padding: 8px 30px;
+        border-radius: 12px;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+}
+
+@media (max-width: $L) {
+  .container {
+    &.first {
+      width: 341px;
+      height: 335px;
+
+      .container-img {
+        img {
+          width: 341px;
+          height: auto;
+        }
+      }
+    }
+
+    &.third {
+      width: 335px;
+      height: 335px;
+
+      .container-img {
+        img {
+          width: 335px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $M) {
+  .container {
+    &.second {
+      width: 335px;
+      height: 157px;
+
+      .container-img {
+        img {
+          width: 335px;
+          height: auto;
+        }
+      }
+
+      .slider::after {
+        bottom: 30px;
+      }
+
+      .slider-titles {
+        bottom: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: $S) {
+  .container {
+    &.second {
+      width: 335px;
+      height: 157px;
+
+      .container-img {
+        img {
+          width: 335px;
+          height: auto;
+        }
+      }
+
+      .slider::after {
+        bottom: 30px;
+      }
+
+      .slider-titles {
+        bottom: 30px;
+      }
+    }
+  }
+}

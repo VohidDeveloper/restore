@@ -1,0 +1,136 @@
+<main class="main">
+  <section id="about" class="about">
+    <div class="about-left">
+      <h1 class="about-left-title">
+        Face Swap AI 
+      </h1>
+      <h1>Online Free</h1>
+      <ul class="about-left-list">
+        @for (item of aboutItems; track $index) {
+          <li class="about-left-list-item">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>{{ item }}</span>
+          </li>
+        }
+      </ul>
+      <div class="about-left-buttons">
+        <div class="btn-dark-container">
+          <button class="btn btn-dark" (click)="navigate()">
+            Restore Photo Now
+          </button>
+          <button class="btn btn-light" (click)="navigate()">Login</button>
+          <p class="price">1 image = 1$</p>
+        </div>
+      </div>
+    </div>
+    <app-img-compare className="first" />
+  </section>
+
+  <section class="old-photo">
+    <div class="old-photo-container">
+      <h2 class="old-photo-container-title">Enhance Old Photo in A Click</h2>
+      <p class="old-photo-container-text">
+        This best AI face enhancer provides a face model to make your face
+        flawless and colorize black-and-white images to bring old photos back to
+        life with one-click
+      </p>
+    </div>
+    <app-img-compare className="second" />
+  </section>
+
+  <section id="how" class="how">
+    <div class="how-header">
+      <p class="subtitle">Step by step</p>
+      <h2 class="title">How to restore old photos with Restore Edit</h2>
+    </div>
+    <div class="how-cards">
+      @for (item of howItems; track $index) {
+        <div class="how-cards-card">
+          <img [src]="item.icon" width="72" height="72" alt="icon" />
+          <p class="how-cards-card-title">{{ item.title }}</p>
+          <p class="how-cards-card-text">{{ item.text }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="prices">
+    <div class="prices-text">
+      <div class="prices-text-header">
+        <p class="subtitle">prices</p>
+        <h2 class="title">Photo processing <span>fee</span></h2>
+      </div>
+      <p class="prices-text-prompt">
+        Breath new life into old images with Restore Edit’s new one-touch photo
+        restoration feature!
+      </p>
+    </div>
+    <app-prices />
+  </section>
+
+  <section class="benefits">
+    <div class="benefits-header">
+      <p class="subtitle">Benefits</p>
+      <h2 class="title">
+        One-click Photo Restoration with <span>Restore</span> Edit’s AI
+      </h2>
+    </div>
+    <div class="benefits-content">
+      <div class="benefits-content-left">
+        <ul class="benefits-content-left-list">
+          @for (item of benefitsItems; track $index) {
+            <li class="benefits-content-left-list-item">
+              <img [src]="item.icon" width="48" height="48" alt="icon" />
+              <div>
+                <p class="benefits-content-left-list-item-title">
+                  {{ item.title }}
+                </p>
+                <p class="benefits-content-left-list-item-text">
+                  {{ item.text }}
+                </p>
+              </div>
+            </li>
+          }
+        </ul>
+        <button class="btn" (click)="navigate()">Get started</button>
+      </div>
+      <app-img-compare className="third" />
+    </div>
+  </section>
+
+  <section class="privileges">
+    <app-privileges />
+  </section>
+
+  <app-faq id="faq" />
+
+  <section class="right-now">
+    <div class="right-now-left">
+      <p class="right-now-left-title">Try Restore Edit right now</p>
+      <button class="btn" (click)="navigate()">Restore Photo Now</button>
+    </div>
+    <div class="right">
+      <div class="right-now-after">
+        <img src="right-now-after.png" width="251" height="291" alt="" />
+      </div>
+      <img
+        class="right-now-before"
+        src="right-now-before.png"
+        width="177"
+        height="200"
+        alt=""
+      />
+      <img
+        class="right-now-icon"
+        src="icon/right-now-icon.svg"
+        width="70"
+        height="70"
+        alt=""
+      />
+    </div>
+  </section>
+</main>

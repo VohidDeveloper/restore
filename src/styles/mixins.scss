@@ -1,0 +1,11 @@
+@mixin flex_container($content: space-between, $direction: row, $align: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $content;
+  flex-direction: $direction;
+}
+
+@mixin container() {
+  margin: 0 auto;
+  max-width: 1200px;
+}

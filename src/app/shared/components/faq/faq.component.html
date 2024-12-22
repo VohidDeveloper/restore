@@ -1,0 +1,40 @@
+<section class="faq">
+  <div class="faq-header">
+    <p class="subtitle">FAQ</p>
+    <p class="title">FAQ about Photo Restoration feature</p>
+  </div>
+  <div class="faq-list">
+    @for (item of faqs(); track $index) {
+      <div
+        [class]="
+          status().get($index) ? 'faq-list-item active' : 'faq-list-item'
+        "
+      >
+        <div class="faq-list-item-question">
+          <div class="faq-list-item-question-title">
+            <img src="icon/faq-icon.svg" width="44" height="44" alt="faq" />
+            <p>{{ item.question }}</p>
+          </div>
+          <button
+            (click)="toggleFaq($index)"
+            class="faq-list-item-question-btn"
+          >
+            <img
+              src="icon/faq-toggle-icon.svg"
+              width="16"
+              height="16"
+              alt="toggle"
+              [@rotate]="status().get($index) ? 'rotated' : 'initial'"
+            />
+          </button>
+        </div>
+        <div
+          class="faq-list-item-answer"
+          [@expandCollapse]="status().get($index) ? 'expanded' : 'collapsed'"
+        >
+          <p>{{ item.answer }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

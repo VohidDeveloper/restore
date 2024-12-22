@@ -1,0 +1,308 @@
+@import "mixins";
+@import "buttons";
+@import "variables";
+
+.profile {
+  gap: 62px;
+  padding: 50px 20px;
+  @include container();
+  @include flex_container(space-between, row, flex-start);
+
+  &-title {
+    margin-left: 32px;
+    max-width: 819px;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 32px;
+  }
+
+  &-menu {
+    &-item {
+      gap: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 10px 53px 10px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      @include flex_container(flex-start);
+
+      .btn-logout {
+        font-size: 16px;
+        font-weight: 500;
+        background-color: transparent;
+        width: 100%;
+        border: none;
+        text-align: start;
+        cursor: pointer;
+      }
+    }
+
+    &-item.active {
+      background-color: var(--yellow-light);
+    }
+  }
+
+  .billing {
+    .banner-top {
+      flex-wrap: wrap;
+      margin-left: 32px;
+      max-width: 819px;
+      position: relative;
+      padding: 6px 6px 6px 14px;
+      border-radius: 15px;
+      background-color: var(--yellow-hover);
+      @include flex_container();
+
+      .sale {
+        font-size: 8px;
+        font-weight: 600;
+        padding: 2px 4px;
+        border-radius: 30px;
+        color: var(--white);
+        left: 17px;
+        top: -8px;
+        background-color: var(--black);
+        position: absolute;
+      }
+
+      &-left {
+        gap: 10px;
+        @include flex_container();
+
+        &-credits {
+          gap: 6px;
+          font-size: 26px;
+          font-weight: 800;
+          letter-spacing: -1.3px;
+          color: var(--white);
+          line-height: 36px;
+          @include flex_container();
+        }
+
+        &-limit {
+          gap: 6px;
+          padding: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 18px;
+          color: rgba(10, 10, 10, 1);
+          border-radius: 6px;
+          background-color: var(--white);
+          @include flex_container();
+
+          .warning {
+            border-radius: 4px;
+            width: 18px;
+            height: 18px;
+            background-color: var(--yellow);
+            background-image: url("/icon/banner-warning.svg");
+            background-size: 10px 10px;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+
+      &-img {
+        right: 169px;
+        position: absolute;
+      }
+
+      .btn {
+        padding: 10px 36px;
+        background: var(--black);
+        color: var(--white);
+      }
+    }
+
+    .banner-bottom {
+      margin-left: 32px;
+      max-width: 819px;
+      flex-wrap: wrap;
+      padding: 6px 6px 6px 16px;
+      background-color: var(--black);
+      @include flex_container();
+      border-radius: 12px;
+
+      .btn {
+        padding: 11px 10px;
+        color: var(--white);
+        background-color: var(--black);
+      }
+
+      &-left {
+        gap: 14px;
+        line-height: 21px;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--white);
+        @include flex_container();
+
+        &-img {
+          border-radius: 15px;
+          width: 48px;
+          height: 48px;
+          background-color: var(--yellow);
+          background-image: url("/icon/gift.svg");
+          background-size: 24px 24px;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+
+      &-right {
+        gap: 9px;
+        padding: 12px;
+        border-radius: 8px;
+        background-color: var(--white);
+        @include flex_container();
+
+        .line-first {
+          width: 115px;
+          line-height: 15px;
+          font-size: 10px;
+          font-weight: 600;
+          color: var(--gray-3);
+          @include flex_container();
+
+          &-credit {
+            gap: 3px;
+            border-radius: 388px;
+            padding: 3px 5px;
+            background-color: var(--yellow-light);
+            @include flex_container();
+          }
+        }
+
+        .line-second {
+          width: 115px;
+          line-height: 21px;
+          font-size: 20px;
+          font-weight: 700;
+          color: rgba(10, 10, 10, 1);
+          @include flex_container(space-between, row, flex-start);
+
+          .currency {
+            line-height: 15px;
+            font-size: 10px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.history,
+.billing {
+  width: 100%;
+  gap: 20px;
+  @include flex_container(center, column, normal);
+}
+
+:host {
+  ::ng-deep {
+    .billing {
+      .prices {
+        flex-direction: column;
+
+        &-item {
+          width: 100%;
+          max-width: 819px;
+
+          &-content {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .prices-divider {
+              display: none;
+            }
+
+            ul {
+              max-width: 451px;
+              padding-left: 20px;
+              border-left: 1px dashed var(--gray-5);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $L) {
+  .profile {
+    &-title {
+      margin-left: 0;
+    }
+
+    .billing {
+      .banner-top {
+        margin-left: 0;
+      }
+
+      .banner-bottom {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $M) {
+  .profile {
+    .billing {
+      .banner-top {
+        gap: 10px;
+        justify-content: center;
+
+        &-img {
+          display: none;
+        }
+      }
+
+      .banner-bottom {
+        gap: 10px;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: $S) {
+  .profile {
+    flex-direction: column;
+
+    &-menu {
+      max-width: calc(100vw - 40px);
+      overflow-x: auto;
+      @include flex_container(flex-start);
+    }
+  }
+
+  .profile {
+    .billing {
+      .banner-top {
+        &-left {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
+  :host {
+    ::ng-deep {
+      .billing {
+        .prices {
+          &-item {
+            &-content {
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
+  }
+}

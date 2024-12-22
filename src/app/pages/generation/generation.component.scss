@@ -1,0 +1,280 @@
+@import "mixins";
+@import "buttons";
+@import "variables";
+
+:host {
+  gap: 50px;
+  padding: 50px 20px;
+  display: block;
+  @include container();
+  @include flex_container(center, column, space-between);
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+  @include flex_container(center, column, center);
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+.upload {
+  gap: 16px;
+  flex-wrap: wrap;
+  @include flex_container();
+
+  &-title {
+    font-size: 60px;
+    font-weight: bold;
+  }
+
+  .btn {
+    gap: 16px;
+    padding: 15px 20px;
+    @include flex_container();
+    background-color: var(--yellow-light);
+    font-size: 16px;
+    font-weight: bold;
+
+    span {
+      font-size: 12px;
+      color: var(--gray-3);
+    }
+  }
+}
+
+@media (max-width: $M) {
+  .upload {
+    justify-content: center;
+  }
+}
+
+@media (max-width: $S) {
+  .upload {
+    &-title {
+      font-size: 36px;
+    }
+  }
+}
+
+.file-drop {
+  border-radius: 30px;
+  border: 3px dashed var(--gray-5);
+  padding: 50px 32px;
+  cursor: pointer;
+  @include flex_container(center, column, center);
+
+  .subtitle {
+    gap: 4px;
+    @include flex_container();
+
+    &-right {
+      gap: 4px;
+      @include flex_container();
+    }
+  }
+
+  &-title {
+    max-width: 504px;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px 0 61px 0;
+    position: relative;
+
+    span {
+      display: inline-block;
+      position: relative;
+    }
+
+    span::before {
+      width: 244px;
+      height: 97px;
+      position: absolute;
+      bottom: -15px;
+      left: -20px;
+      content: "";
+      display: block;
+      background-image: url("/icon/layer-1.svg");
+      background-size: 244px 97px;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .generation-error {
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray-3);
+    text-align: center;
+  }
+
+  &-text {
+    padding: 20px 0 29px 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+    span {
+      font-size: 16px;
+      color: var(--gray-3);
+    }
+  }
+
+  .btn {
+    &-dark {
+      width: 124px;
+      height: 60px;
+    }
+  }
+}
+
+.file-drop.drag-over {
+  background-color: #f0f8ff;
+  border-color: #007bff;
+}
+
+.generate {
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  border-radius: 30px;
+  border: 3px dashed var(--gray-5);
+  padding: 50px 32px;
+  @include flex_container(center, row, normal);
+
+  .block {
+    gap: 20px;
+    border-radius: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 20px;
+    color: var(--gray-3);
+    background-color: var(--gray);
+    @include flex_container(center, column, center);
+  }
+
+  .small-block {
+    gap: 20px;
+    border-radius: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 20px;
+    color: var(--gray-3);
+    background-color: var(--gray);
+    @include flex_container(center, column, center);
+    display: none;
+
+    &-switch {
+      width: 100%;
+      gap: 40px;
+      @include flex_container(center, row, center);
+    }
+
+    p.active {
+      color: var(--black);
+    }
+  }
+
+  &-image {
+    width: 300px;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include flex_container(center, row, center);
+  }
+
+  .btn {
+    &-dark {
+      padding: 12px 66px;
+    }
+
+    &-close {
+      background-color: transparent;
+      padding: 0;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+  }
+
+  .formats {
+    line-height: 22px;
+    font-weight: 700;
+    font-size: 16px;
+
+    &-btns {
+      border-radius: 12px;
+      gap: 8px;
+      padding: 8px;
+      margin-top: 12px;
+      background-color: var(--gray);
+      @include flex_container();
+
+      .btn {
+        background-color: transparent;
+        padding: 12px 50px;
+
+        &.active {
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+
+  .download-block {
+    gap: 16px;
+    @include flex_container(space-between, column, center);
+  }
+}
+
+@media (max-width: $S) {
+  .generate {
+    .block {
+      display: none;
+    }
+
+    .small-block {
+      display: flex;
+    }
+  }
+
+  .file-drop {
+    &-title {
+      font-size: 36px;
+
+      span::before {
+        width: 175px;
+        height: 72px;
+        background-size: 175px 70px;
+      }
+    }
+
+    &-text {
+      font-size: 14px;
+
+      span {
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+  }
+}

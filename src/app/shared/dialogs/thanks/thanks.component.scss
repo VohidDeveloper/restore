@@ -1,0 +1,32 @@
+@import "mixins";
+@import "buttons";
+
+:host {
+  gap: 20px;
+  display: block;
+  padding: 48px 40px;
+  position: relative;
+  background-color: var(--white);
+  @include flex_container(flex-start, column, center);
+
+  p {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: -0.045em;
+  }
+
+  .btn {
+    &-dark {
+      width: 100%;
+      padding: 19px 0;
+    }
+
+    &-close {
+      top: 20px;
+      right: 20px;
+      position: absolute;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@import "mixins";
+@import "buttons";
+@import "variables";
+
+.footer {
+  gap: 30px;
+  padding: 18px 40px;
+  @include container();
+  @include flex_container(flex-start, column, flex-start);
+
+  &-content {
+    width: 100%;
+    padding-top: 6px;
+    @include flex_container();
+
+    &-left {
+      gap: 16px;
+      @include flex_container(flex-start, column, flex-start);
+
+      &-logo {
+        gap: 14px;
+        @include flex_container(flex-start);
+        font-weight: 800;
+        font-size: 26px;
+      }
+
+      &-title {
+        font-weight: bold;
+        font-size: 16px;
+        color: var(--gray-3);
+      }
+    }
+
+    &-buttons {
+      gap: 8px;
+      @include flex_container();
+
+      .btn {
+        height: 45px;
+        font-size: 14px;
+
+        &-light {
+          width: 109px;
+        }
+
+        &-dark {
+          width: 162px;
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    width: 100%;
+    padding-top: 16px;
+    color: var(--gray-3);
+    line-height: 24px;
+    flex-wrap: wrap;
+    @include flex_container(space-between, row, flex-start);
+
+    &-policy {
+      gap: 16px;
+      @include flex_container();
+    }
+  }
+}
+
+@media (max-width: $S) {
+  .footer {
+    &-content {
+      gap: 16px;
+      flex-direction: column;
+    }
+  }
+}

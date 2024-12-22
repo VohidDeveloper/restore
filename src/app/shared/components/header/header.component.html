@@ -1,0 +1,61 @@
+<header class="header">
+  <div class="header-logo" routerLink="/">
+    <div></div>
+    <img src="icon/swapper/Logo.svg" alt="logo" width="194" height="49" />
+  </div>
+  <ul class="header-menu">
+    <li><a href="#about">What is it?</a></li>
+    <li><a href="#how">How to restore?</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  
+  @if (!authStatus()) {
+    <div class="header-buttons">
+      <button class="btn btn-gray" (click)="openLoginDialog()">Log in</button>
+      <button class="btn btn-black" (click)="openLoginDialog()">
+        <span class="text">Start restorer</span>
+          <img src="assets/images/icons/arrow-white.svg" alt="arrow" width="16" height="16" />
+            </button>
+    </div>
+  } @else {
+    <div class="header-logged" (click)="toggleUserMenu()">
+      <div class="header-logged-account">
+        <div class="header-logged-account-credit">
+          <img src="icon/avatar.svg" width="30" height="30" alt="avatar" />
+          <img src="icon/credit.svg" alt="Upload" width="16" height="16" />
+          <p>{{ credits() }}</p>
+        </div>
+        <img src="icon/menu-arrow.svg" alt="open" width="12" height="13" />
+      </div>
+      <button class="btn btn-dark" routerLink="/generation">
+        <img
+          src="icon/upload-minimalistic.svg"
+          alt="Upload"
+          width="16"
+          height="17"
+        />
+        <p>Upload</p>
+      </button>
+    </div>
+  }
+
+  @if (isUserMenuOpen()) {
+    <ul class="menu" appCloseMenu (closeMenu)="isUserMenuOpen.set($event)">
+      <li class="menu-item" (click)="navigate(true)">
+        <img src="icon/wallet.svg" alt="wallet" width="24" height="24" />
+        <p>Payment history</p>
+      </li>
+      <li class="menu-item" (click)="navigate(false)">
+        <img src="icon/bill.svg" alt="bill" width="24" height="24" />
+        <p>Billing & Plans</p>
+      </li>
+      <li class="menu-item" (click)="logout()">
+        <img src="icon/logout.svg" alt="logout" width="24" height="24" /><button
+          class="btn-logout"
+        >
+          Log out
+        </button>
+      </li>
+    </ul>
+  }
+</header>

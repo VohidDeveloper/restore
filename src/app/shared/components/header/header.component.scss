@@ -1,0 +1,156 @@
+@import "mixins";
+@import "buttons";
+@import "variables";
+
+.header {
+  padding: 16px 40px;
+  @include container();
+  @include flex_container();
+  background-color: #fff;
+  border-radius: 20px;
+  border-bottom: 1px solid #EBEBEB;
+
+
+  &-logo {
+    gap: 14px;
+    @include flex_container();
+    font-weight: 800;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  &-menu {
+    gap: 50px;
+    font-weight: bold;
+    color: var(--gray-3);
+    @include flex_container();
+  }
+
+  &-buttons {
+    gap: 8px;
+    @include flex_container();
+
+    .btn {
+      padding: 13px 34px;
+      font-size: 14px;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    right: 135px;
+    top: 88px;
+    z-index: 1;
+    padding: 20px;
+    border: 1px solid var(--gray);
+    border-radius: 20px;
+    background-color: var(--white);
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+
+    &-item {
+      gap: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 10px 53px 10px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      @include flex_container(flex-start);
+
+      .btn-logout {
+        font-size: 16px;
+        font-weight: 500;
+        background-color: transparent;
+        width: 100%;
+        border: none;
+        text-align: start;
+        cursor: pointer;
+      }
+    }
+
+    &-item:hover {
+      background-color: var(--yellow-light);
+    }
+  }
+
+  &-logged {
+    gap: 8px;
+    @include flex_container();
+
+    &-account {
+      gap: 10px;
+      padding: 13px 6px;
+      border-radius: 12px;
+      background-color: var(--yellow-light);
+      @include flex_container();
+      cursor: pointer;
+
+      &-credit {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+        gap: 4px;
+        content: var(--yellow);
+        @include flex_container();
+      }
+    }
+
+    .btn {
+      &-dark {
+        padding: 13px 44px;
+        gap: 10px;
+        @include flex_container();
+
+        p {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 19px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $M) {
+  .header {
+    &-menu {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $S) {
+  .header {
+    padding: 12px 20px;
+
+    &-logo {
+      gap: 10px;
+      font-size: 18px;
+
+      img {
+        width: 119px;
+        height: 30.2px;
+      }
+    }
+
+    &-buttons {
+      .btn {
+        height: 45px;
+        padding: 13px 12px;
+        font-size: 12px;
+      }
+    }
+
+    .header-logged {
+      .btn {
+        &-dark {
+          padding: 13px;
+
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

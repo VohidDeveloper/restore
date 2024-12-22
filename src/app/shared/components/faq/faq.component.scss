@@ -1,0 +1,104 @@
+@import "mixins";
+@import "variables";
+
+.faq {
+  gap: 40px;
+  width: 100%;
+  padding: 50px 40px;
+  @include flex_container(center, column, center);
+
+  &-header {
+    @include flex_container(center, column, center);
+
+    .title {
+      max-width: 580px;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 335px;
+        height: 25px;
+        display: block;
+        position: absolute;
+        left: 40px;
+        bottom: -10px;
+        background-size: 335px 25px;
+        background-repeat: no-repeat;
+        background-image: url("/icon/layer-4.svg");
+      }
+    }
+  }
+
+  &-list {
+    gap: 8px;
+    @include flex_container(center, column);
+
+    &-item {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px dashed var(--gray-5);
+      @include flex_container(flex-start, column, flex-start);
+
+      &.active {
+        border: 1px solid var(--yellow-light);
+        background-color: var(--yellow-light);
+
+        .faq-list-item-question-btn {
+          background-color: var(--white);
+        }
+      }
+
+      &-question {
+        width: 100%;
+        @include flex_container();
+
+        &-title {
+          gap: 16px;
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 25px;
+          @include flex_container();
+        }
+
+        &-btn {
+          border: none;
+          padding: 12px;
+          cursor: pointer;
+          border-radius: 10px;
+          background-color: var(--yellow);
+          @include flex_container(center);
+        }
+      }
+
+      &-answer {
+        overflow: hidden;
+        padding-top: 10px;
+        padding-left: 56px;
+        padding-right: 56px;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+        color: var(--gray-3);
+      }
+    }
+  }
+}
+
+@media (max-width: $S) {
+  .faq {
+    .title::before {
+      width: 219px;
+    }
+  }
+
+  .faq-list-item-question-title {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .faq-list-item-answer {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}

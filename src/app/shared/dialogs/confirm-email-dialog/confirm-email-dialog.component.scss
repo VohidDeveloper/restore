@@ -1,0 +1,44 @@
+@import "mixins";
+@import "buttons";
+
+:host {
+  gap: 12px;
+  display: block;
+  padding: 40px 50px;
+  position: relative;
+  background-color: var(--white);
+  @include flex_container(flex-start, column, center);
+
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: -0.045em;
+  }
+
+  .text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--gray-3);
+    text-align: center;
+
+    span {
+      color: var(--yellow-hover);
+    }
+  }
+
+  .btn {
+    &-dark {
+      width: 100%;
+      padding: 19px 0;
+    }
+
+    &-close {
+      top: 20px;
+      right: 20px;
+      position: absolute;
+    }
+  }
+}

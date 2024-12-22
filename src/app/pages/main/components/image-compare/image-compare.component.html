@@ -1,0 +1,20 @@
+<div
+  appImageCompare
+  [class]="'container ' + className()"
+  (changePosition)="moveSlider($event)"
+>
+  <div class="container-img after">
+    <img [src]="className() + '-after.png'" alt="after" />
+  </div>
+  <div #slider class="slider">
+    @if (className() !== 'third') {
+      <div class="slider-titles">
+        <p>{{ className() === "first" ? "Before" : "After" }}</p>
+        <p>{{ className() === "first" ? "After" : "Before" }}</p>
+      </div>
+    }
+  </div>
+  <div #before class="container-img before">
+    <img [src]="className() + '-before.png'" alt="before" />
+  </div>
+</div>

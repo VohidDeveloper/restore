@@ -1,0 +1,150 @@
+@if (isOriginalFileUpLoad()) {
+  <div class="upload">
+    <p class="upload-title">Restore & Enhance</p>
+    <button class="btn" (click)="generate()">
+      <img src="icon/upload.svg" alt="upload" width="50" height="50" />
+      <p>
+        Upload image<br /><span>JPG, PNG, JPEG, WEBP, BMP· Max size 5Mb</span>
+      </p>
+    </button>
+  </div>
+  <div class="generate">
+    <div class="block">
+      <p>Original</p>
+      <div
+        class="generate-image"
+        [style.background-image]="originFileUrl()"
+      ></div>
+    </div>
+    @if (isUploadStart()) {
+      <div class="block">
+        <p>Restored</p>
+        <div
+          class="generate-image"
+          [style.background-image]="generatedFileUrl()"
+        >
+          @if (generatedFileUrl() === "none") {
+            <div class="loader" [style.background-image]="originFileUrl()">
+              <mat-spinner></mat-spinner>
+            </div>
+          }
+        </div>
+      </div>
+    }
+    <div class="small-block">
+      <div class="small-block-switch">
+        <p
+          (click)="setOriginalBlockVisibility(true)"
+          [class.active]="isOriginalBlockVisible()"
+        >
+          Original
+        </p>
+        @if (isUploadStart()) {
+          <p
+            (click)="setOriginalBlockVisibility(false)"
+            [class.active]="!isOriginalBlockVisible()"
+          >
+            Restored
+          </p>
+        }
+      </div>
+      @if (isOriginalBlockVisible()) {
+        <div
+          class="generate-image"
+          [style.background-image]="originFileUrl()"
+        ></div>
+      } @else {
+        <div
+          class="generate-image"
+          [style.background-image]="generatedFileUrl()"
+        >
+          @if (generatedFileUrl() === "none") {
+            <div class="loader" [style.background-image]="originFileUrl()">
+              <mat-spinner></mat-spinner>
+            </div>
+          }
+        </div>
+      }
+    </div>
+    @if (generatedFileUrl() !== "none") {
+      <div class="download-block">
+        <div class="formats">
+          <p>Export format</p>
+          <div class="formats-btns">
+            <button
+              class="btn"
+              [class.active]="format() === 'jpg'"
+              (click)="setFormat('jpg')"
+            >
+              JPG
+            </button>
+            <button
+              class="btn"
+              [class.active]="format() === 'png'"
+              (click)="setFormat('png')"
+            >
+              PNG
+            </button>
+          </div>
+        </div>
+        <button class="btn btn-dark" (click)="download()">
+          Download HD image
+        </button>
+      </div>
+    }
+    <button class="btn btn-close" (click)="reset()">
+      <img src="icon/login-close.svg" alt="close" />
+    </button>
+  </div>
+} @else {
+  @if (isError()) {
+    <div
+      class="file-drop"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+      [class.drag-over]="isDragOver()"
+    >
+      <img src="icon/error-generation.svg" width="52" height="52" alt="error" />
+      <p class="generation-error">An error occurred during generation</p>
+      <button type="button" class="btn btn-dark" (click)="fileInput.click()">
+        Try again
+      </button>
+    </div>
+  } @else {
+    <div
+      class="file-drop"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+      [class.drag-over]="isDragOver()"
+    >
+      <div class="subtitle">
+        <p>Price for 1 photo:</p>
+        <div class="subtitle-right">
+          <img src="/icon/credit.svg" alt="credit" /><span>1</span>
+        </div>
+      </div>
+      <p class="file-drop-title">Drag & Drop to <span>upload</span>, or</p>
+      <button type="button" class="btn btn-dark" (click)="fileInput.click()">
+        Browse
+      </button>
+      <p class="file-drop-text">
+        Drag image here or click to upload<br /><span
+          >JPG, PNG, JPEG, WEBP, BMP· Max size 5Mb</span
+        >
+      </p>
+    </div>
+  }
+}
+
+<input
+  hidden
+  #fileInput
+  type="file"
+  [accept]="accept"
+  (change)="onFileSelect($event)"
+/>
+
+<app-privileges />
+<app-faq />

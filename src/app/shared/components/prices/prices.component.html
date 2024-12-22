@@ -1,0 +1,36 @@
+<div class="prices">
+  @for (plan of plans(); track plan.id; let isEven = $even) {
+    <div [class]="isEven ? 'prices-item' : 'prices-item center'">
+      <p class="prices-item-credits">{{ plan.credits }} credits</p>
+      <div class="prices-item-content">
+        <div>
+          <div class="prices-item-content-amount">
+            <p class="one-prices">{{ plan.price_per_credit }}$</p>
+            <!-- <p class="currency">$ CAD<br />for 1 credit</p> -->
+          </div>
+          <p class="whole-prices">{{ plan.price_total }}$ for a whole plan</p>
+        </div>
+        <div class="prices-divider"></div>
+        <ul>
+          @for (benefit of plan.description; track $index) {
+            <li class="prices-item-content-list">
+              <img
+                src="icon/marker.svg"
+                width="24"
+                height="24"
+                alt="icon"
+              /><span>{{ benefit }}</span>
+              <p></p>
+            </li>
+          }
+        </ul>
+      </div>
+      <button class="btn" (click)="navigate(plan.id)">
+        Buy {{ plan.credits }} credits
+      </button>
+      <!-- @if (!isEven) {
+        <div class="prices-sale">sale -{{ price.sale }}%</div>
+      } -->
+    </div>
+  }
+</div>

@@ -1,0 +1,60 @@
+<table mat-table [dataSource]="history()" class="table">
+  <ng-container matColumnDef="payment">
+    <th mat-header-cell *matHeaderCellDef>Payment</th>
+    <td mat-cell *matCellDef="let element">{{ element.payment }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="coins">
+    <th mat-header-cell *matHeaderCellDef>Coins</th>
+    <td mat-cell *matCellDef="let element">
+      <p class="cell-coins">{{ element.coins }}</p>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="plan">
+    <th mat-header-cell *matHeaderCellDef>Plan</th>
+    <td mat-cell *matCellDef="let element">{{ element.plan }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.date }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<div class="small-table">
+  @for (item of history(); track $index) {
+    <div class="small-table-row">
+      <div class="small-table-column-left">
+        @for (column of displayedColumns; track $index) {
+          <p>{{ column }}</p>
+        }
+      </div>
+      <div class="small-table-column-right">
+        <p class="price">{{ item.payment }}</p>
+        <p class="coins">{{ item.coins }}</p>
+        <p>{{ item.plan }}</p>
+        <p>{{ item.date }}</p>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="pagination">
+  <button class="controls previous" (click)="handlePageEvent('prev')"></button>
+  @for (item of pagesCount(); track $index) {
+    <div
+      class="page-btn"
+      [class.active]="page() === item"
+      (click)="page.set(item)"
+    >
+      {{ item }}
+    </div>
+  }
+  <button class="controls next" (click)="handlePageEvent('next')"></button>
+</div>

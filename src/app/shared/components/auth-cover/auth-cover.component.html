@@ -1,0 +1,36 @@
+<div class="cover">
+  <ng-content />
+  <diV class="cover-right">
+    <img
+      class="before"
+      src="login-before.png"
+      alt="before"
+      width="242"
+      height="300"
+    />
+    <img
+      class="after"
+      src="login-after.png"
+      alt="after"
+      width="192"
+      height="242"
+    />
+    <img
+      class="arrow"
+      src="icon/login-arrow.svg"
+      alt="arrow"
+      width="44"
+      height="115"
+    />
+    <img
+      class="icon"
+      src="icon/login-cover-icon.svg"
+      alt="icon"
+      width="62"
+      height="62"
+    />
+    <button class="btn" (click)="closeDialog.emit()">
+      <img src="icon/login-close.svg" alt="icon" />
+    </button>
+  </diV>
+</div>

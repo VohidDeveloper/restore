@@ -1,0 +1,124 @@
+<app-auth-cover (closeDialog)="close()">
+  @switch (step()) {
+    @case (steps.LOGIN) {
+      <div class="login">
+        <p class="login-title">Log in to your account</p>
+        <div class="login-container">
+          <p class="login-subtitle">
+            You don't have an account?
+            <span (click)="setStep(steps.ENTER_EMAIL)">Sign up</span>
+          </p>
+          <button
+            class="btn btn-dark"
+            (click)="setStep(steps.LOGIN_WITH_EMAIL)"
+          >
+            Log in with email
+          </button>
+          <p class="login-policy">
+            By continuing, you agree to our<br /><span routerLink="/terms-of-service">Terms of Use</span> and
+            <span  routerLink="/privacy-policy">Privacy Policy</span>
+          </p>
+        </div>
+        <!-- <p class="login-separator">or</p>
+        <div class="login-btns-with">
+          <button class="btn btn-light">
+            <img
+              class="icon"
+              src="icon/google.svg"
+              width="30"
+              height="30"
+              alt="google"
+            />
+            <p>Continue with Google</p>
+          </button>
+          <button class="btn btn-light">
+            <img
+              class="icon"
+              src="icon/facebook.svg"
+              width="30"
+              height="30"
+              alt="facebook"
+            />
+            <p>Continue with Facebook</p>
+          </button>
+          <button class="btn btn-light">
+            <img
+              class="icon"
+              src="icon/apple.svg"
+              width="30"
+              height="30"
+              alt="apple"
+            />
+            <p>Continue with Apple</p>
+          </button>
+        </div> -->
+      </div>
+    }
+    @case (steps.LOGIN_WITH_EMAIL) {
+      <app-login-form
+        title="Continue with mail"
+        subtitle=""
+        buttonText="Log in with email"
+        step="email-password"
+        (back)="setStep(steps.LOGIN)"
+        (forgotPassword)="setStep(steps.RESET_PASSWORD)"
+        (submit)="login($event)"
+      />
+    }
+    @case (steps.ENTER_EMAIL) {
+      <app-login-form
+        title="Create an account"
+        subtitle="Enter your e-mail address to register"
+        buttonText="Continue"
+        step="email"
+        (back)="setStep(steps.LOGIN)"
+        (submit)="checkEmail($event)"
+      />
+    }
+    @case (steps.ENTER_PASSWORD) {
+      <app-login-form
+        title="Enter your password"
+        subtitle="And finish creating your account"
+        buttonText="Create my account"
+        step="password"
+        (submit)="create($event)"
+        (back)="setStep(steps.ENTER_EMAIL)"
+      />
+    }
+    @case (steps.RESET_PASSWORD) {
+      <app-login-form
+        title="Reset password"
+        subtitle="Drop your email below and we’ll send you a link to reset your password"
+        buttonText="Send link"
+        step="reset-password"
+        (submit)="sendResetLink($event)"
+      />
+    }
+    @case (steps.RESET_LINK) {
+      <div class="login">
+        <p class="login-title">Reset link was sent</p>
+        <p class="login-subtitle">
+          A password reset link was sent to your mail. Check your e-mail and
+          reset your password.
+        </p>
+        <button class="btn btn-dark" (click)="sentLinkAgain()">
+          Send link again
+        </button>
+        <p class="login-policy">
+          By continuing, you agree to our<br /><span routerLink="terms-of-service">Terms of Use</span> and
+          <span routerLink="privacy-policy">Privacy Policy</span>
+        </p>
+      </div>
+    }
+  }
+</app-auth-cover>
+
+<button class="btn close" (click)="close()">
+  <img src="icon/login-close.svg" alt="icon" />
+</button>
+
+@if (loading()) {
+  <div class="loader">
+    <mat-spinner></mat-spinner>
+  </div>
+}

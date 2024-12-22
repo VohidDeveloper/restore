@@ -1,0 +1,102 @@
+<div class="login-form">
+  <form class="login-form-top" [formGroup]="form">
+    <div>
+      <p class="login-form-top-title">{{ title() }}</p>
+      <p class="login-form-top-subtitle">{{ subtitle() }}</p>
+    </div>
+    @if (step() !== "password") {
+      <label
+        >Your e-mail<br /><input
+          formControlName="email"
+          class="login-form-top-input"
+          type="text"
+          placeholder="E-mail"
+      /></label>
+      <!-- @if (step() === "email") {
+        <div class="warning error">
+          <img src="icon/error.svg" alt="error" width="12" height="13" />
+          <p>This email already exists</p>
+        </div>
+      } -->
+    }
+    @if (step() !== "email" && step() !== "reset-password") {
+      <label
+        >Your password<br /><input
+          formControlName="password"
+          class="login-form-top-input"
+          [type]="isPasswordHidden() ? 'password' : 'text'"
+          placeholder="Password"
+        />
+        <div
+          class="visibility-btn"
+          (click)="toggleVisibility()"
+          [class.hidden]="isPasswordHidden()"
+        ></div>
+      </label>
+      @if (step() === "password") {
+        <div class="password-warning">
+          <p class="password-warning-title">Your password must have:</p>
+          <div class="password-warning-title-warnings">
+            <div class="warning">
+              @let errLength =
+                form.controls.password.hasError("minlength") ||
+                form.controls.password.hasError("required");
+              <img
+                [src]="errLength ? 'icon/check-error.svg' : 'icon/check.svg'"
+                alt="error"
+                width="14"
+                height="15"
+              />
+              <p [class.error]="errLength">8 characters</p>
+            </div>
+            <div class="warning">
+              @let errLetter = form.controls.password.hasError("letter");
+              <img
+                [src]="errLetter ? 'icon/check-error.svg' : 'icon/check.svg'"
+                alt="error"
+                width="14"
+                height="15"
+              />
+              <p [class.error]="errLetter">High letter</p>
+            </div>
+            <div class="warning">
+              @let errNumber = form.controls.password.hasError("number");
+              <img
+                [src]="errNumber ? 'icon/check-error.svg' : 'icon/check.svg'"
+                alt="error"
+                width="14"
+                height="15"
+              />
+              <p [class.error]="errNumber">One number</p>
+            </div>
+          </div>
+        </div>
+      }
+    }
+    @if (step() === "email-password") {
+      <p class="login-form-top-forgot" (click)="forgotPassword.emit()">
+        I forgot my password
+      </p>
+    }
+  </form>
+  <div class="login-form-btns">
+    @if (step() !== "reset-password") {
+      <button class="btn btn-light" (click)="back.emit()">
+        <img src="icon/back.svg" width="16" height="16" alt="back" />
+      </button>
+    }
+    <button
+      class="btn btn-dark"
+      [disabled]="control.invalid"
+      (click)="submitForm()"
+    >
+      {{ buttonText() }}
+    </button>
+  </div>
+  @if (step() === "reset-password") {
+    <p class="login-policy">
+      By continuing, you agree to our<br /><span routerLink="/terms-of-service">Terms of Use</span> and
+      <span routerLink="/privacy-policy">Privacy Policy</span>
+    </p>
+  }
+</div>

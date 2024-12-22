@@ -1,0 +1,14 @@
+@for (item of privilegesItems; track $index) {
+  <div class="privileges-item">
+    <img
+      [src]="item.icon"
+      [width]="item.width"
+      [height]="item.height"
+      alt="icon"
+    />
+    <div>
+      <h2 class="privileges-item-title">{{ item.title }}</h2>
+      <p class="privileges-item-text">{{ item.text }}</p>
+    </div>
+  </div>
+}
