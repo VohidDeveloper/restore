@@ -1,36 +1,177 @@
 <div class="prices">
-  @for (plan of plans(); track plan.id; let isEven = $even) {
-    <div [class]="isEven ? 'prices-item' : 'prices-item center'">
-      <p class="prices-item-credits">{{ plan.credits }} credits</p>
-      <div class="prices-item-content">
-        <div>
-          <div class="prices-item-content-amount">
-            <p class="one-prices">{{ plan.price_per_credit }}$</p>
-            <!-- <p class="currency">$ CAD<br />for 1 credit</p> -->
-          </div>
-          <p class="whole-prices">{{ plan.price_total }}$ for a whole plan</p>
+ 
+  <div class="prices-item">
+    <p class="prices-item-credits">5 credits</p>
+    <div class="prices-item-content">
+      <div>
+        <div class="prices-item-content-amount">
+          <p class="one-prices">$0.60</p>
+          <!-- <p class="currency">$ CAD<br />for 1 credit</p> -->
         </div>
-        <div class="prices-divider"></div>
-        <ul>
-          @for (benefit of plan.description; track $index) {
-            <li class="prices-item-content-list">
-              <img
-                src="icon/marker.svg"
-                width="24"
-                height="24"
-                alt="icon"
-              /><span>{{ benefit }}</span>
-              <p></p>
-            </li>
-          }
-        </ul>
+        <p class="whole-prices">2.99$ for a whole plan</p>
       </div>
-      <button class="btn" (click)="navigate(plan.id)">
-        Buy {{ plan.credits }} credits
-      </button>
-      <!-- @if (!isEven) {
-        <div class="prices-sale">sale -{{ price.sale }}%</div>
-      } -->
+      <div class="prices-divider"></div>
+      <ul>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>5 Instant Credits = 5 Requests</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>HD Quality Photo</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>Without Watermark</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>Use Undress AI Options
+            </span>
+            <p></p>
+          </li>
+      </ul>
     </div>
-  }
+    <button class="btn" >
+      Buy 5 credits
+    </button>
+    <!-- @if (!isEven) {
+      <div class="prices-sale">sale -{{ price.sale }}%</div>
+    } -->
+  </div>
+  <div class="prices-item">
+    <p class="prices-item-credits">20 credits</p>
+    <div class="prices-item-content">
+      <div>
+        <div class="prices-item-content-amount">
+          <p class="one-prices">$0.45</p>
+          <!-- <p class="currency">$ CAD<br />for 1 credit</p> -->
+        </div>
+        <p class="whole-prices">2.99$ for a whole plan</p>
+      </div>
+      <div class="prices-divider"></div>
+      <ul>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>5 Instant Credits = 5 Requests</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>HD Quality Photo</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>Without Watermark</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>Use Undress AI Options
+            </span>
+            <p></p>
+          </li>
+      </ul>
+    </div>
+    <button class="btn" >
+      Buy 5 credits
+    </button>
+    <!-- @if (!isEven) {
+      <div class="prices-sale">sale -{{ price.sale }}%</div>
+    } -->
+  </div>
+  <div class="prices-item">
+    <p class="prices-item-credits">5 credits</p>
+    <div class="prices-item-content">
+      <div>
+        <div class="prices-item-content-amount">
+          <p class="one-prices">0.60$</p>
+          <!-- <p class="currency">$ CAD<br />for 1 credit</p> -->
+        </div>
+        <p class="whole-prices">2.99$ for a whole plan</p>
+      </div>
+      <div class="prices-divider"></div>
+      <ul>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>5 Instant Credits = 5 Requests</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>HD Quality Photo</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>Without Watermark</span>
+            <p></p>
+          </li>
+          <li class="prices-item-content-list">
+            <img
+              src="icon/marker.svg"
+              width="24"
+              height="24"
+              alt="icon"
+            /><span>Use Undress AI Options
+            </span>
+            <p></p>
+          </li>
+      </ul>
+    </div>
+    <button class="btn" >
+      Buy 5 credits
+    </button>
+    <!-- @if (!isEven) {
+      <div class="prices-sale">sale -{{ price.sale }}%</div>
+    } -->
+  </div>
 </div>

@@ -30,32 +30,32 @@ export class PricesComponent {
     initialValue: [],
   });
 
-  navigate(id: number): void {
-    const authStatus = this.authService.authStatus.value;
-    const userId = this.storage.get('id');
+  // navigate(id: number): void {
+  //   const authStatus = this.authService.authStatus.value;
+  //   const userId = this.storage.get('id');
 
-    if (authStatus) {
-      const { url } = this.router;
-      if (url === '/') {
-        this.router.navigate(['profile']);
-      } else {
-        this.apiService.getPayLink(id, Number(userId));
-        // .subscribe({
-        //   next: (res) => {
-        //     console.log(res);
-        //   },
-        //   error: (err) => {
-        //     console.log(err);
-        //   },
-        // });
-      }
-      this.router.navigate(['profile'], {
-        queryParams: { isHistoryTab: false },
-      });
-    } else {
-      this.openLoginDialog();
-    }
-  }
+  //   if (authStatus) {
+  //     const { url } = this.router;
+  //     if (url === '/') {
+  //       this.router.navigate(['profile']);
+  //     } else {
+  //       this.apiService.getPayLink(id, Number(userId));
+  //       // .subscribe({
+  //       //   next: (res) => {
+  //       //     console.log(res);
+  //       //   },
+  //       //   error: (err) => {
+  //       //     console.log(err);
+  //       //   },
+  //       // });
+  //     }
+  //     this.router.navigate(['profile'], {
+  //       queryParams: { isHistoryTab: false },
+  //     });
+  //   } else {
+  //     this.openLoginDialog();
+  //   }
+  // }
 
   private openLoginDialog(): void {
     this.dialogService.openLoginDialog();

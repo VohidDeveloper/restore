@@ -1,24 +1,23 @@
 export const aboutItems = [
-  'Remove scratches & enhance colors',
-  'Restore old photos based on mature AI technology',
-  'Upscale the restored photos to 2X with AI technology',
+  'Try AI face swap videos and photos for anyone you like.',
+  'Free swap face now!',
 ];
 
 export const howItems = [
   {
-    icon: 'icon/how-icon-1.svg',
-    title: 'Upload your photo',
-    text: 'Click Upload Image or drag & drop your desired photo into the Upload section.',
+    icon: 'icon/swapper/girlred.png',
+    title: 'Upload Photo',
+    text: 'Upload the photo you want to edit as the source image. Ensure that the image is clear and well-lit for better results.',
   },
   {
-    icon: 'icon/how-icon-2.svg',
-    title: 'Compare before & after',
-    text: 'You can easily create a video showing the transformation, or simply share the result.',
+    icon: 'icon/swapper/girlyel.png',
+    title: 'Choose Face to Swap',
+    text: 'Select the image you want to face swap with. Choose from preset photos or upload any image to replace your face.',
   },
   {
-    icon: 'icon/how-icon-3.svg',
-    title: 'Share (or create a video)',
-    text: 'You can easily create a video showing the transformation, or simply share the result.',
+    icon: 'icon/swapper/girlred.png',
+    title: 'Preview and Download',
+    text: 'Click ‘Generate’ to magically replace the face in seconds. Preview and save your face-swapped photo.',
   },
 ];
 

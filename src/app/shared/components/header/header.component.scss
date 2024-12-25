@@ -9,7 +9,7 @@
   background-color: #fff;
   border-radius: 20px;
   border-bottom: 1px solid #EBEBEB;
-
+  
 
   &-logo {
     gap: 14px;
@@ -111,6 +111,13 @@
   }
 }
 
+@media (max-width: $L) {
+  .header {
+    &-menu {
+      display: none;
+    }
+  }
+}
 @media (max-width: $M) {
   .header {
     &-menu {

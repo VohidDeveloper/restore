@@ -33,9 +33,15 @@
         position: absolute;
         bottom: -16px;
         right: 130px;
-        background-image: url("/icon/layer-1.svg");
+        // background-image: url("/icon/layer-1.svg");
         background-size: 244px 97px;
         background-repeat: no-repeat;
+      }
+      &-bg {
+        background-color: var(--light-green);
+        display: inline-block;
+        border-radius: 12px;
+        padding: 0 8px;
       }
     }
 
@@ -222,8 +228,11 @@
         bottom: -30px;
         background-size: 423px 61px;
         background-repeat: no-repeat;
-        background-image: url("/icon/layer-2.svg");
       }
+    }
+    &-description {
+      max-width: 580px;
+      position: relative;
     }
   }
 
@@ -234,12 +243,12 @@
     &-card {
       padding: 32px;
       border-radius: 24px;
-      background-color: var(--yellow-light);
+      background-color: var(--white);
 
       &-title {
         font-size: 24px;
         font-weight: bold;
-        padding: 122px 0 12px 0;
+        padding: 12px 0 12px 0;
       }
 
       &-text {
@@ -247,6 +256,7 @@
         line-height: 24px;
         font-weight: 600;
         color: var(--gray-3);
+        margin-bottom: 24px;
       }
     }
   }
@@ -280,18 +290,20 @@
 .prices {
   gap: 42px;
   width: 100%;
-  padding: 60px;
+  // padding: 60px;
   border-radius: 24px;
-  border: 1px solid var(--gray-5);
+  // border: 1px solid var(--gray-5);
+  
   @include flex_container(center, column);
 
   &-text {
     width: 100%;
     @include flex_container();
+    display: flex;
+    justify-content: center;
 
     &-header {
-      @include flex_container(flex-start, column, flex-start);
-
+      @include flex_container(center, column);
       .title {
         span {
           color: var(--gray-3);
@@ -508,7 +520,7 @@
 
 .right-now {
   width: 100%;
-  background-color: var(--black);
+  background-color: var(--light-green);
   border-radius: 32px;
   color: var(--white);
   position: relative;
@@ -533,39 +545,40 @@
       font-size: 60px;
       font-weight: bold;
       padding-bottom: 40px;
+      color: var(--black);
     }
 
     .btn {
       width: 242px;
       height: 60px;
-      background-color: var(--yellow);
+      background-color: var(--black);
     }
   }
 
   &-after {
     position: absolute;
     right: 74px;
-    bottom: 0;
+    top: 0;
     z-index: 1;
 
     &::after {
       position: absolute;
       content: "";
       display: block;
-      width: 63px;
-      height: 66px;
-      left: -113px;
+      width: 120px;
+      height: 120px;
+      left: -53px;
       bottom: 59px;
-      background-image: url("/icon/right-now-arrow.svg");
-      background-size: 63px 66px;
+      background-image: url("/images/arrowImage.png");
+      background-size: 120px 120px;
       background-repeat: no-repeat;
     }
   }
 
   &-before {
     position: absolute;
-    right: 288px;
-    top: 0;
+    right: 338px;
+    bottom: 0;
   }
 
   &-icon {
@@ -594,13 +607,15 @@
       img {
         width: 170px;
         height: 180px;
+        object-fit: contain;
       }
     }
 
     &-before {
-      width: 119px;
-      height: 148px;
-      right: 185px;
+      width: 170px;
+      height: 180px;
+      right: 285px;
+      object-fit: contain;
     }
 
     &-icon {
@@ -617,5 +632,169 @@
     &-left {
       padding: 30px 43px 28px 30px;
     }
+
+    .right {
+      height: 254px;
+    }
+
+    &-after {
+      right: 20px;
+      img {
+        width: 141px;
+        height: 185px;
+        object-fit: contain;
+      }
+
+      &::after {
+        width: 71px;
+        height: 71px;
+        left: -53px;
+        bottom: 9px;
+        background-size: 71px 71px;
+      }
+    }
+
+    &-before {
+      width: 141px;
+      height: 193px;
+      right: 185px;
+      bottom: 0;
+      object-fit: contain;
+
+    }
+
   }
+}
+
+// .features-container {
+//   display: grid;
+//   grid-template-columns: 1fr 2fr 1fr; /* Chetdagi kartalar kichik, o'rtadagilar katta */
+//   grid-template-rows: auto 1fr auto; /* Har bir qatorning balandligi kontentga moslashadi */
+//   gap: 20px;
+//   padding: 20px;
+//   background-color: #f9f9f9;
+
+//   .feature-card {
+//     background-color: #ffffff;
+//     border: 1px solid #ddd;
+//     border-radius: 8px;
+//     padding: 20px;
+//     text-align: center;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+
+//     h3 {
+//       font-size: 1.25rem;
+//       margin-bottom: 10px;
+//       color: #333;
+//     }
+
+//     p {
+//       font-size: 1rem;
+//       color: #555;
+//       margin-bottom: 15px;
+//     }
+
+//     img {
+//       max-width: 100%;
+//       border-radius: 5px;
+//       margin-top: 10px;
+//     }
+//   }
+
+//   .small-card {
+//     grid-column: span 1; /* Kichik kartalar faqat bitta ustunni egallaydi */
+//   }
+
+//   .large-card {
+//     grid-column: 2 / 3; /* O'rtadagi keng ustunga joylashtirildi */
+//     // justify-self: center; /* O'rtaga joylashish */
+//     align-self: center; /* Vertikal o'rtaga joylashish */
+//   }
+// }
+
+
+.features-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Chetdagi kartalar kichikroq, o'rtadagilar katta */
+  grid-template-rows: auto 1fr auto; /* Chetdagi qatorlar balandligi auto, o'rtadagilar bir xil */
+  gap: 20px;
+  padding: 20px;
+
+  .feature-card {
+    background-color: var(--white);
+    border: 1px solid #F2F3F7;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  }
+
+  .small-card {
+    grid-column: span 1;
+    align-self: flex-start ;
+    padding: 30px;
+    height: 100%;
+    
+  }
+
+  .large-card {
+    padding: 30px 30px 0;
+     grid-column: 2 / 3; /* O'rtadagi keng ustunga joylashtirildi */
+     // justify-self: center; /* O'rtaga joylashish */
+     align-self: flex-start; /* Vertikal o'rtaga joylashish */
+   }
+}
+
+@media (max-width: $M) {
+  .features-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto; 
+
+    .feature-card {
+      grid-column: span 2; 
+    }
+  }
+
+  
+}
+
+@media (max-width: $S) {
+  .features-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; 
+    padding: 0;
+
+    .feature-card {
+      grid-column: span 1;
+      width: 100%; 
+      margin: 0; 
+    }
+  }
+
+  
 }

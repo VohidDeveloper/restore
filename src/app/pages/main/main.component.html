@@ -4,70 +4,133 @@
       <h1 class="about-left-title">
         Face Swap AI 
       </h1>
-      <h1>Online Free</h1>
+      <h1 class="about-left-title about-left-title-bg">Online Free</h1>
       <ul class="about-left-list">
         @for (item of aboutItems; track $index) {
           <li class="about-left-list-item">
-            <img
-              src="icon/marker.svg"
-              width="24"
-              height="24"
-              alt="icon"
-            /><span>{{ item }}</span>
+            <span>{{ item }}</span>
           </li>
         }
       </ul>
       <div class="about-left-buttons">
         <div class="btn-dark-container">
-          <button class="btn btn-dark" (click)="navigate()">
+          <button class="btn btn-black" (click)="navigate()">
             Restore Photo Now
           </button>
-          <button class="btn btn-light" (click)="navigate()">Login</button>
-          <p class="price">1 image = 1$</p>
+          <button class="btn btn-gray" (click)="navigate()">Login</button>
         </div>
       </div>
     </div>
-    <app-img-compare className="first" />
+    <img src="icon/swapper/faceswap.png" alt="">
+    <!-- <app-img-compare className="first" /> -->
   </section>
 
-  <section class="old-photo">
+  <!-- <section class="old-photo">
     <div class="old-photo-container">
-      <h2 class="old-photo-container-title">Enhance Old Photo in A Click</h2>
+      <h2 class="old-photo-container-title">How to Swap Faces in Photo Online</h2>
       <p class="old-photo-container-text">
         This best AI face enhancer provides a face model to make your face
         flawless and colorize black-and-white images to bring old photos back to
         life with one-click
       </p>
     </div>
-    <app-img-compare className="second" />
-  </section>
+    <img src="icon/swapper/faceswap.png" alt="">
+  </section> -->
 
   <section id="how" class="how">
     <div class="how-header">
       <p class="subtitle">Step by step</p>
       <h2 class="title">How to restore old photos with Restore Edit</h2>
+      <p class="old-photo-container-text">
+        This best AI face enhancer provides a face model to make your face
+        flawless and colorize black-and-white images to bring old photos back to
+        life with one-click
+      </p>
     </div>
     <div class="how-cards">
       @for (item of howItems; track $index) {
         <div class="how-cards-card">
-          <img [src]="item.icon" width="72" height="72" alt="icon" />
-          <p class="how-cards-card-title">{{ item.title }}</p>
+          <p class="how-cards-card-title">{{ item.title }} <span></span></p>
           <p class="how-cards-card-text">{{ item.text }}</p>
+          <img [src]="item.icon" width="72" height="72" alt="icon" style="float: right;"/>
+
         </div>
       }
     </div>
+  </section>
+
+  
+
+  <section class="right-now">
+    <div class="right-now-left">
+      <p class="right-now-left-title">Try Swap Face Right Now</p>
+      <button class="btn btn-black" (click)="navigate()">Try Swap Face Now</button>
+    </div>
+    <div class="right">
+      <div class="right-now-after">
+        <img src="images/FaceSwapImage2.png" width="236" height="310" alt="" />
+      </div>
+      <img
+        class="right-now-before"
+        src="images/FaceSwapImage.png"
+        width="251"
+        height="323.81"
+        alt=""
+      />
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <div class="how-header">
+      <p class="subtitle">Features</p>
+      <h2 class="title">Features of Swapper</h2>
+      <p class="old-photo-container-text">
+        Know more features about our tools
+      </p>
+    </div>
+    <div class="features-container">
+      <div class="feature-card small-card">
+        <h3>Simple Face Swapper</h3>
+        <p>AI Face swap is a piece of cake on Swapper! Just upload a good photo of your face.</p>
+        <img src="images/prn.png" alt="" />
+
+      </div>
+      <div class="feature-card large-card">
+        <h3>Online & On All Devices</h3>
+        <p>The functionality is available on all types of devices.</p>
+        <img src="images/DeviceImageContainer.png" alt="Example on phone" />
+      </div>
+      <div class="feature-card small-card">
+        <h3>Available for Free</h3>
+        <p>Swapper is free to use with options to upgrade to pro-user. Free users can still access all our features.</p>
+        <img src="images/shake.png" alt="" />
+      </div>
+      <div class="feature-card small-card">
+        <h3>Private Swap Process</h3>
+        <p>Your privacy is our priority. We ensure the process of face switching.</p>
+        <img src="images/file.png" alt="" />
+      </div>
+      <div class="feature-card large-card">
+        <h3>Save Time & Improve Quality</h3>
+        <p>Just upload a good photo of your face and pick a template. Then, let the AI do its thing – no need for tricky editing! It’s super simple and perfect for everyone.</p>
+        <img src="images/oldtonew.png" alt="Before and After Face Swap" />
+      </div>
+      <div class="feature-card small-card">
+        <h3>Easy Control</h3>
+        <p>Swapper swap faces automatically once uploaded. There is no second step.</p>
+        <img src="images/lists.png" alt="" />
+      </div>
+    </div>
+    
   </section>
 
   <section class="prices">
     <div class="prices-text">
       <div class="prices-text-header">
         <p class="subtitle">prices</p>
-        <h2 class="title">Photo processing <span>fee</span></h2>
+        <h2 class="title">Swap processing fee</h2>
+        <p class="old-photo-container-text">Breath new life into old images with Swapper’s new one-touch photo restoration feature!</p>
       </div>
-      <p class="prices-text-prompt">
-        Breath new life into old images with Restore Edit’s new one-touch photo
-        restoration feature!
-      </p>
     </div>
     <app-prices />
   </section>
@@ -108,7 +171,7 @@
 
   <app-faq id="faq" />
 
-  <section class="right-now">
+  <!-- <section class="right-now">
     <div class="right-now-left">
       <p class="right-now-left-title">Try Restore Edit right now</p>
       <button class="btn" (click)="navigate()">Restore Photo Now</button>
@@ -132,5 +195,5 @@
         alt=""
       />
     </div>
-  </section>
+  </section> -->
 </main>
