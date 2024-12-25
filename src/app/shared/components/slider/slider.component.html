@@ -1,0 +1,8 @@
+<swiper [slidesPerView]="3" [spaceBetween]="30" navigation pagination class="mySwiper">
+    <ng-container *ngFor="let item of items">
+      <div class="swiper-slide">
+        <h3>{{ item }}</h3>
+      </div>
+    </ng-container>
+  </swiper>
+  
