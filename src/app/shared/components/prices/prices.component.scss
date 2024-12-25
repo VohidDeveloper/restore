@@ -11,6 +11,7 @@
     padding: 24px;
     max-width: 312px;
     border-radius: 24px;
+    background-color: var(--white);
     border: 1px dashed var(--gray-5);
     @include flex_container(flex-start, column, flex-start);
 
@@ -96,11 +97,125 @@
     color: var(--black);
     background-color: var(--yellow);
   }
+
+  
+}
+.prices-ads {
+  position: relative;
+  width: 100%;
+  margin-top: 24px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  background-color: var(--violet);
+
+  &-sale {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    width: 107px;
+    text-align: center;
+    background-color: var(--light-green);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 0;
+  }
+
+  &-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 14px;
+    
+    &-title {
+      width: 240px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--white);
+      border-right: 1px solid #fff;
+      padding-right: 10px;
+    }
+    &-theme {
+      width: 300px;
+      color: var(--light-green);
+      font-style: italic;
+      font-size: 24px;
+    }
+  }
+
+  &-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 10px;
+  }
 }
 
 @media (max-width: $M) {
   .prices {
     flex-wrap: wrap;
     justify-content: center;
+
+    
+  }
+}
+@media (max-width: $S) {
+  .prices {
+    padding: 0;
+    margin: 0;
+
+    &-item {
+      // position: relative;
+      padding: 24px;
+      width: 100%;
+      margin: 0;
+    }
+  }
+  .prices-ads {
+
+    &-sale {
+      position: absolute;
+      top: -10px;
+      left: 40%;
+      width: 107px;
+      font-weight: bold;
+      padding: 3px 0;
+    }
+
+    &-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 14px;
+      
+      &-title {
+        border: 0;
+      }
+      &-theme {
+        width: 300px;
+        color: var(--light-green);
+        font-style: italic;
+        font-size: 24px;
+      }
+    }
+  
+    &-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 0 10px;
+
+      &-btn {
+        
+        &-btn-black {
+          font-size: 8px;
+        }
+      }
+    }
   }
 }
