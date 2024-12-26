@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DialogService } from 'src/app/core/services/dialog.service';
-import { SliderComponent } from '../../shared/components/slider/slider.component';
+// import { SliderComponent } from '../../shared/components/slider/slider.component';
 
 @Component({
   selector: 'app-main',
@@ -18,7 +18,7 @@ import { SliderComponent } from '../../shared/components/slider/slider.component
     PrivilegesComponent,
     FaqComponent,
     PricesComponent,
-    SliderComponent
+    // SliderComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',

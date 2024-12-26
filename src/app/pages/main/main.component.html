@@ -39,7 +39,7 @@
 
   <section id="how" class="how">
     <div class="how-header">
-      <p class="subtitle">Step by step</p>
+      <p class="subtitle"><img src="icon/swapper/heartIcon.png" width="14px" height="14px" alt="">Step by step</p>
       <h2 class="title">How to restore old photos with Restore Edit</h2>
       <p class="old-photo-container-text">
         This best AI face enhancer provides a face model to make your face
@@ -82,7 +82,7 @@
 
   <section id="how" class="how">
     <div class="how-header">
-      <p class="subtitle">Features</p>
+      <p class="subtitle"><img src="icon/swapper/heartIcon.png" width="14px" height="14px" alt="">Features</p>
       <h2 class="title">Features of Swapper</h2>
       <p class="old-photo-container-text">
         Know more features about our tools
@@ -123,54 +123,56 @@
     </div>
     
   </section>
-
-  <section class="prices">
-    <div class="prices-text">
-      <div class="prices-text-header">
-        <p class="subtitle">prices</p>
-        <h2 class="title">Swap processing fee</h2>
-        <p class="old-photo-container-text">Breath new life into old images with Swapper’s new one-touch photo restoration feature!</p>
+  <section class="dark-section">
+    <section class="prices">
+      <div class="prices-text">
+        <div class="prices-text-header">
+          <p class="subtitle"><img src="icon/swapper/dollarIcon.png" width="14px" height="14px" alt=""> prices</p>
+          <h2 class="title">Swap processing fee</h2>
+          <p class="old-photo-container-text">Breath new life into old images with Swapper’s new one-touch photo restoration feature!</p>
+        </div>
       </div>
-    </div>
-    <app-prices />
-    
-  </section>
-
-  <section class="benefits">
-    <div class="benefits-header">
-      <p class="subtitle">Benefits</p>
-      <h2 class="title">
-        One-click Photo Restoration with <span>Restore</span> Edit’s AI
-      </h2>
-    </div>
-    <!-- <div class="benefits-content">
-      <div class="benefits-content-left">
-        <ul class="benefits-content-left-list">
-          @for (item of benefitsItems; track $index) {
-            <li class="benefits-content-left-list-item">
-              <img [src]="item.icon" width="48" height="48" alt="icon" />
-              <div>
-                <p class="benefits-content-left-list-item-title">
-                  {{ item.title }}
-                </p>
-                <p class="benefits-content-left-list-item-text">
-                  {{ item.text }}
-                </p>
-              </div>
-            </li>
-          }
-        </ul>
-        <button class="btn" (click)="navigate()">Get started</button>
+      <app-prices />
+      
+    </section>
+  
+    <section class="benefits">
+      <div class="benefits-header">
+        <p class="subtitle">Benefits</p>
+        <h2 class="title">
+          One-click Photo Restoration with <span>Restore</span> Edit’s AI
+        </h2>
       </div>
-      <app-img-compare className="third" />
-    </div> -->
+      <!-- <div class="benefits-content">
+        <div class="benefits-content-left">
+          <ul class="benefits-content-left-list">
+            @for (item of benefitsItems; track $index) {
+              <li class="benefits-content-left-list-item">
+                <img [src]="item.icon" width="48" height="48" alt="icon" />
+                <div>
+                  <p class="benefits-content-left-list-item-title">
+                    {{ item.title }}
+                  </p>
+                  <p class="benefits-content-left-list-item-text">
+                    {{ item.text }}
+                  </p>
+                </div>
+              </li>
+            }
+          </ul>
+          <button class="btn" (click)="navigate()">Get started</button>
+        </div>
+        <app-img-compare className="third" />
+      </div> -->
+    </section>
+  
+    <section class="privileges">
+      <app-privileges />
+    </section>
+  
+    <app-faq id="faq" />
   </section>
 
-  <section class="privileges">
-    <app-privileges />
-  </section>
-
-  <app-faq id="faq" />
 
   <!-- <section class="right-now">
     <div class="right-now-left">

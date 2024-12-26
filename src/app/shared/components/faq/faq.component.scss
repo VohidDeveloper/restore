@@ -2,30 +2,28 @@
 @import "variables";
 
 .faq {
+  display: flex;
   gap: 40px;
   width: 100%;
   padding: 50px 40px;
-  @include flex_container(center, column, center);
+  // @include flex_container(center, column, center);
 
   &-header {
-    @include flex_container(center, column, center);
-
+    // @include flex_container(center, column, center);
+    .subtitle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--violet);
+    } 
     .title {
+      font-size: 60px;
       max-width: 580px;
       position: relative;
-
-      &::before {
-        content: "";
-        width: 335px;
-        height: 25px;
-        display: block;
-        position: absolute;
-        left: 40px;
-        bottom: -10px;
-        background-size: 335px 25px;
-        background-repeat: no-repeat;
-        background-image: url("/icon/layer-4.svg");
-      }
+      text-align: start;
+    }
+    .description {
+      color: var(--gray-5);
     }
   }
 
@@ -87,6 +85,7 @@
 
 @media (max-width: $S) {
   .faq {
+    flex-wrap: wrap;
     .title::before {
       width: 219px;
     }
